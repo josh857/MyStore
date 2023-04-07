@@ -1,11 +1,15 @@
 <script  setup>
 import axios from 'axios';
 import { reactive, ref, watch,defineAsyncComponent } from 'vue';
-let num = reactive({idx:0})
+
+
 //自動導入type1 商品
  let product = ref();
+
   axios.get('http://localhost:8080/v1/product/getproduct/1')
-        .then(res=>{product.value=res.data})
+        .then((res)=>{
+            product.value=res.data
+        })
 
 //點擊事件加入購物車儲存至car表 
 const saveCar=(id)=>{
@@ -39,6 +43,9 @@ const saveCar=(id)=>{
     <el-button color="#626aef" style="width: 100px;" @click="saveCar(p.id)">加入購物車</el-button>
 </el-card>
 </el-row>
+ <div style="margin-left: 600px;">
+    
+ </div>
 </template>
 
 

@@ -5,6 +5,7 @@ import Drink from '../components/Drink.vue'
 import Home from '../components/Home.vue'
 import Fruit from '../components/Fruit.vue'
 import Car from '../components/Car.vue'
+import Jasper from '../components/Jasper.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -32,8 +33,12 @@ const router = createRouter({
       path: '/Car',
       name: 'car',
       component: Car
-    },
-    
+    }, 
+    {
+      path: '/Jasper',
+      name: 'jasper',
+      component: Jasper
+    }, 
     {
       path: '/about',
       name: 'about',

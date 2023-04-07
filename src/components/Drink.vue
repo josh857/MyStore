@@ -4,8 +4,11 @@ import { reactive, ref, watch } from 'vue';
 
  //自動導入type2 商品
  let product = ref();
+ 
   axios.get('http://localhost:8080/v1/product/getproduct/2')
-        .then(res=>{product.value=res.data})
+        .then((res)=>{
+            product.value=res.data
+        })
 //點擊事件加入購物車儲存至car表        
 const saveCar=(id)=>{
     axios.post('http://localhost:8080/v1/car/save/'+id)
