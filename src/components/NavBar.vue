@@ -12,13 +12,9 @@ axios.get('http://localhost:8080/v1/car/getcount')
           console.log(num.idx);
         })
 
-     
-
-
 </script>
 
 <template>
-
   <div class="row">
     <!--此為logo-->
     <div class="col-3" id="logo">
@@ -47,6 +43,9 @@ axios.get('http://localhost:8080/v1/car/getcount')
   </div>
   </div>
 </template>
+
+
+
 
 
 <style>

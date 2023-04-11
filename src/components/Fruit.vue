@@ -2,11 +2,27 @@
 import axios from 'axios';
 import { reactive, ref, watch } from 'vue';
 
+let page = ref({});
  let product = ref();
-  axios.get('http://localhost:8080/v1/product/getproduct/3')
+ let pagenum = ref(1);
+ 
+ const change = (n)=>{
+        axios.get('http://localhost:8080/v1/product/getproduct/3/'+n)
         .then((res)=>{
-            product.value=res.data
+            page.value=res.data;
+            console.log(page)
+            product.value=res.data.content
         })
+    }
+
+    axios.get('http://localhost:8080/v1/product/getproduct/3/'+pagenum.value)
+        .then((res)=>{
+            page.value=res.data;
+            console.log(page)
+            product.value=res.data.content
+        })
+
+        
     //點擊事件加入購物車儲存至car表        
 const saveCar=(id)=>{
     axios.post('http://localhost:8080/v1/car/save/'+id)
@@ -34,10 +50,19 @@ const saveCar=(id)=>{
       </div>
     </template>
     <div style="margin-left:30px">價格:<span v-text="p.price"></span><span>元</span></div>
-    <el-button color="#626aef" style="width: 60px;" >詳細</el-button>
+    <router-link :to="'/Detail?'+p.id"><el-button color="#626aef" style="width: 60px;">詳細</el-button></router-link>
     <el-button color="#626aef" style="width: 100px;" @click="saveCar(p.id)">加入購物車</el-button>
 </el-card>
 </el-row>
+<nav aria-label="Page navigation example" style="margin-left: 600px; margin-top: 100px;">
+  <ul class="pagination">
+    <li class="page-item" v-for="n in page.totalPages" >
+        <a class="page-link" href="#" >
+            <span v-text="n" style="font-size: medium;" @click="change(n)"></span>
+        </a>
+    </li>
+  </ul>
+</nav>
 </template>
 
 
