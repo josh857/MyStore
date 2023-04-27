@@ -1,16 +1,12 @@
 <script setup>
 import axios from "axios";
 import { reactive, ref,defineAsyncComponent } from "vue";
-import Food from '../components/Food.vue';
-
 
 let num = reactive({idx:0})
-
 axios.get('http://localhost:8080/v1/car/getcount')
-        .then(res=>{
-          num.idx = res.data;
-          console.log(num.idx);
-        })
+      .then((res)=>{
+          num.idx=res.data;
+      })
 
 </script>
 

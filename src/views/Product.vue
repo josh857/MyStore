@@ -5,11 +5,6 @@
 
 
 <template>
-    <!--上層-->
-    <div>
-        <navbar/>
-    </div>
-    <!--中層-->
     <div class="body">
         <router-view/>
     </div>
@@ -19,7 +14,10 @@
 
 <style>
 .body{
-    height: 90%;
+    width: 100%;
+    max-width: 1440px;
+    height: 100%;
+    margin: auto;
 }
 
 </style>

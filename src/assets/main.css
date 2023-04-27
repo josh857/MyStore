@@ -1,13 +1,10 @@
 @import './base.css';
 
-body{
-height: 100%;
 
-}
-/* #app {
+#app {
   font-weight: normal;
   height: 100%;
-} */
+} 
 
 /* a,
 .green {
@@ -33,4 +30,4 @@ height: 100%;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
-} */
+}  */
